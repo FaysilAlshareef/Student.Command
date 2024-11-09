@@ -61,11 +61,29 @@ namespace Student.Command.Domain.Resourses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to الطالب محذوف مسبقا.
+        /// </summary>
+        public static string StudentAlreadyDeleted {
+            get {
+                return ResourceManager.GetString("StudentAlreadyDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to تم إضافة الطالب.
         /// </summary>
         public static string StudentCreated {
             get {
                 return ResourceManager.GetString("StudentCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to تم حذف الطالب.
+        /// </summary>
+        public static string StudentDeleted {
+            get {
+                return ResourceManager.GetString("StudentDeleted", resourceCulture);
             }
         }
         

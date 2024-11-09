@@ -23,5 +23,12 @@ namespace Student.Command.Domain.Extensions
                     command.Name,
                     command.Phone,
                     command.Address));
+
+        public static StudentDeleted ToEvent(this IDeleteStudentCommand command, int sequence)
+           => new(
+               command.Id,
+               command.UserId,
+               sequence,
+               new Events.DataTypes.StudentDeletedData());
     }
 }

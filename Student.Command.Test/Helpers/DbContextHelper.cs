@@ -4,14 +4,9 @@ using Student.Command.Infra.Persistence;
 
 namespace Student.Command.Test.Helpers
 {
-    public class DbContextHelper
+    public class DbContextHelper(IServiceProvider provider)
     {
-        private readonly IServiceProvider _provider;
-
-        public DbContextHelper(IServiceProvider provider)
-        {
-            _provider = provider;
-        }
+        private readonly IServiceProvider _provider = provider;
 
         public async Task<TResult> Query<TResult>(Func<AppDbCon, Task<TResult>> query)
         {

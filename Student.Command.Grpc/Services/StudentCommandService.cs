@@ -33,5 +33,17 @@ namespace Student.Command.Grpc.Services
                 Message = Phrases.StudentUpdated
             };
         }
+
+        public override async Task<Response> DeleteStudent(DeleteStudentRequest request, ServerCallContext context)
+        {
+            var command = request.ToCommand();
+
+            await _mediator.Send(command);
+
+            return new Response
+            {
+                Message = Phrases.StudentDeleted
+            };
+        }
     }
 }

@@ -7,6 +7,7 @@ package student_command;
 service StudentCommand{
 	rpc CreateStudent (CreateStudentRequest) returns (Response);
 	rpc UpdateStudent (UpdateStudentRequest) returns (Response);
+	rpc DeleteStudent (DeleteStudentRequest) returns (Response);
 }
 
 message CreateStudentRequest{
@@ -22,6 +23,10 @@ message UpdateStudentRequest{
 	string phone = 3;
 	string address = 4;
 	string user_id = 5;
+}
+message DeleteStudentRequest {
+	string id = 1;
+	string user_id = 2;
 }
 
 message Response{

@@ -14,6 +14,8 @@ public static class ValidationContainer
 
         services.AddValidator<UpdateStudentRequestValidator>();
 
+        services.AddValidator<DeleteStudentRequestValidator>();
+
         return services;
     }
 }

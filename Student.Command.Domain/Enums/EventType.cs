@@ -3,6 +3,7 @@
     public enum EventType
     {
         StudentCreated,
-        StudentUpdated
+        StudentUpdated,
+        StudentDeleted
     }
 }

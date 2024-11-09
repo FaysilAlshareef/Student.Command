@@ -1,4 +1,5 @@
 ﻿using Student.Command.Application.Features.Students.CreateStudent;
+using Student.Command.Application.Features.Students.DeleteStudent;
 using Student.Command.Application.Features.Students.UpdateStudent;
 using Student.Command.Grpc.Protos;
 
@@ -20,5 +21,8 @@ namespace Student.Command.Grpc.Extensions
                 request.Phone,
                 request.Address,
                 Guid.Parse(request.UserId));
+
+        public static DeleteStudentCommand ToCommand(this DeleteStudentRequest request)
+            => new(Guid.Parse(request.Id), Guid.Parse(request.UserId));
     }
 }

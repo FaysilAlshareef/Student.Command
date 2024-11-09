@@ -18,7 +18,8 @@ namespace Student.Command.Infra.Persistence.Configrations
 
             builder.HasDiscriminator(e => e.Type)
                 .HasValue<StudentCreated>(EventType.StudentCreated)
-                .HasValue<StudentUpdated>(EventType.StudentUpdated);
+                .HasValue<StudentUpdated>(EventType.StudentUpdated)
+                .HasValue<StudentDeleted>(EventType.StudentDeleted);
         }
     }
 }

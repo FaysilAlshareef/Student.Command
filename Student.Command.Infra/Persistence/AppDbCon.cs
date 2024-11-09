@@ -19,6 +19,8 @@ namespace Student.Command.Infra.Persistence
 
             modelBuilder.ApplyConfiguration(new GenericEventConfig<StudentUpdated, StudentUpdatedData>());
 
+            modelBuilder.ApplyConfiguration(new GenericEventConfig<StudentDeleted, StudentDeletedData>());
+
             base.OnModelCreating(modelBuilder);
         }
     }
