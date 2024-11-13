@@ -2,10 +2,10 @@
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
-using Student.Command.Domain.Enums;
 using Student.Command.Domain.Events;
 using Student.Command.Domain.Resourses;
 using Student.Command.Grpc;
+using Student.Command.Test.Asserts;
 using Student.Command.Test.Helpers;
 using Student.Command.Test.Protos;
 using Xunit.Abstractions;
@@ -54,17 +54,7 @@ namespace Student.Command.Test.Tests
 
             Assert.Equal(Phrases.StudentCreated, response.Message);
 
-            Assert.Equal(createStudentRequest.UserId, @event.UserId.ToString());
-
-            Assert.Equal(createStudentRequest.Name, @event.Data.Name);
-
-            Assert.Equal(createStudentRequest.Address, @event.Data.Address);
-
-            Assert.Equal(createStudentRequest.Phone, @event.Data.Phone);
-
-            Assert.Equal(DateTime.UtcNow, @event.DateTime, TimeSpan.FromMinutes(1));
-
-            Assert.Equal(EventType.StudentCreated, @event.Type);
+            createStudentRequest.AssertEquality(@event);
 
             Assert.Equal(@event.Id, outboxMessage.Event!.Id);
         }
