@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\events_history.proto" />
     <None Remove="Protos\student_command.proto" />
   </ItemGroup>
 
@@ -25,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\events_history.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\student_command.proto" GrpcServices="Server" />
   </ItemGroup>
 

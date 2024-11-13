@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option csharp_namespace = "Student.Command.Grpc.Protos.EventsHistory";
+
+package student_command;
+
+import "google/protobuf/timestamp.proto";
+
+service StudentEventsHistory {
+  rpc GetEvents (GetEventsRequest) returns (Response);
+}
+
+message GetEventsRequest{
+	int32 current_page = 1;
+	int32 page_size = 2;
+}
+
+message Response {
+  repeated EventMessage events = 1;
+}
+
+message EventMessage {
+  string correlation_id = 1;
+  google.protobuf.Timestamp date_time = 2;
+  string data = 3;
+  string type = 4;
+  int32 sequence = 5;
+  int32 version = 6;
+  string aggregate_id = 7;
+  string user_id = 8;
+}
