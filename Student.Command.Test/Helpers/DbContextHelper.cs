@@ -23,5 +23,14 @@ namespace Student.Command.Test.Helpers
             await context.SaveChangesAsync();
             return @event;
         }
+
+        public async Task<Event> UpdateAsync(Event @event)
+        {
+            using var scope = _provider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<AppDbCon>();
+            context.Events.Update(@event);
+            await context.SaveChangesAsync();
+            return @event;
+        }
     }
 }
